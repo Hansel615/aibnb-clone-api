@@ -1,3 +1,7 @@
+const authRoutes = require("./routes/auth");
+const passportJWT = require("./middlewares/passportJWT")();
+const errorHandler = require("./middlewares/errorHandler");
+const cors = require("cors");
 const express = require("express") ;
 const app = express() ;
 const mongoose = require("mongoose") ;
@@ -5,6 +9,8 @@ const path = require("path") ;
 const port = process.env.PORT || 8000 ;
 const morgan = require('morgan');
 const fs = require('fs');
+
+
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
 
 mongoose.Promise = global.Promise;
@@ -14,9 +20,14 @@ mongoose.connect("mongodb://localhost/airbnb-clone-api", {
 }).then(function(){
     console.log('connected to MongoDB successfully') ;
 });
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(passportJWT.intialize());
 app.use(morgan('combined', {stream: accessLogStream})) ;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/api/auth", authRoutes);
 app.listen(port, () => console.log(`[server is running on ${port}]`));
 app.get('/api', function (req, res) {
     res.send('hello, world!')
