@@ -1,0 +1,21 @@
+extends base
+
+block content 
+  main.mainlogin
+    .leftlogin
+
+
+    .rightlogin
+      .login-form
+        h2 Connectez vous à votre compte
+        form.form.form--login
+          .form__grouplogin
+            label.form__label(for='email') Adresse mail
+            input#email.form__input(type='email', placeholder='you@example.com', required)
+            block forgetcontent
+              p.hideblock 
+          .form__grouplogin
+            label.form__label(for='password') Password
+            input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+          .form__grouplogin
+            button.btn1 Login    

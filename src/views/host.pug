@@ -1,0 +1,33 @@
+extends base
+
+block content
+    main.main
+        .host-form
+            h2 Inscrivez votre logement
+            h2.heading-secondary.ma-bt-lg Renseignez les informations 
+
+            form.hostform
+                .form__group.hosting
+                    label.form__label(for='name') NAME
+                    input#name.form__input(type='name', placeholder='Renseignez votre logement', required)
+                .form__group.hosting
+                    label.form__label(for='description') Description du logement
+                    input#location.form__input(type='location', placeholder='détails', required)
+                .form__group.hosting
+                    label.form__label(for='rooms') Nombre de chambres
+                    input#description.form__input(type='description', placeholder='Rooms', required)
+                .form__group.hosting
+                    label.form__label(for='bathrooms') Nombre de salle de bain
+                    input#summary.form__input(type='bathrooms', placeholder='bathrooms', required)
+                .form__group.hosting
+                    label.form__label(for='max_guests') Nbre personnes
+                    input#rooms.form__input(type='max_guests', placeholder='guests', required)
+                .form__group.hosting
+                    label.form__label(for='price_by_night') Prix
+                    input#price.form__input(type='price', placeholder='prix en €', required)
+                .form__group.hosting
+                    label.form__label(for='availlable') Disponibilités
+                    input#price.form__input(type='date', placeholder='Dispo', required)
+                .form__group.hosting                       
+
+                    button.btn.btn-success.btn-lg(type='button submit', name='D5', value='1') Envoyer 

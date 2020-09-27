@@ -1,0 +1,40 @@
+extends base
+
+block content   
+
+  main.mainsign
+    .left
+      
+      .left-text
+        h1
+          | Rejoignez la communauté 
+          br
+          |  pour louer ou reserver.
+    .right
+      .signup-form
+        .signup-form_text
+          
+          h2.heading-secondary.ma-bt-lg S'enregistrer 
+          p
+            | Vous avez déja un compte ? 
+            a(href='/login') Se connecter
+        form.signform.formdesign
+          .form__group
+            label.form__label.form__label__text(for='email') Email Address
+            br
+            input#email.form__input(type='email' required)
+          .form__group.ma-bt-md
+            label.form__label.form__label__text(for='firstname') First Name
+            br
+            input#username.form__input(type='text' required)
+          .form__group.ma-bt-md
+            label.form__label.form__label__text(for='last_name') Last Name
+            br
+            input#password.form__input(type='text' required)
+          .form__group.ma-bt-md
+            label.form__label.form__label__text(for='password') Password
+            br
+            input#confirmPassword.form__input(type='password' required)    
+          .form__group
+				
+            button.btn.btn-success.btn-lg(type='button submit', name='D5', value='1') S'inscrire 
