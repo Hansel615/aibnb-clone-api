@@ -1,5 +1,5 @@
 /*eslint-env es6*/
-/*Base Dependencies*/
+/*Generic Base Dependencies*/
 const express = require("express") ;
 const app = express() ;
 const mongoose = require("mongoose") ;
