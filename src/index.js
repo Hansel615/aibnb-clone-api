@@ -7,20 +7,17 @@ const morgan = require('morgan');
 const fs = require('fs');
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
 
-
-
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/airbnb-clone-api", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}).then(()=>{
-    console.log('connected to MongoDB') ;
+}).then(function(){
+    console.log('connected to MongoDB successfully') ;
 });
-app.use(morgan('combined', {stream: accessLogStream}))
+app.use(morgan('combined', {stream: accessLogStream})) ;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.listen(port, () => console.log(`[🚧 server is running on ${port}]`));
+app.listen(port, () => console.log(`[server is running on ${port}]`));
 app.get('/api', function (req, res) {
     res.send('hello, world!')
   });
-  
