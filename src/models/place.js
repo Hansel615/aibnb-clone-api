@@ -9,10 +9,15 @@ const PlaceSchema = new Schema({
   bathrooms: {type: Number, required: true, ref:'bathrooms'},
   max_guests: {type: Number, required: true, ref:'max_guests'},
   price_by_night: {type: Number, required: true, ref:'price_by_night'},
+  available: {type:[] , required: true, ref:'available'},
   user: {type: Schema.Types.ObjectId, ref:"user"},
   city_id:{type: Schema.Types.ObjectId, ref:"city"},
 });
 
+PlaceSchema.methods.convertDate = async(date)=>{
+    const result = date.toISOString() ;
+    return result ;
+}
 const Place = mongoose.model("Place", PlaceSchema);
 
 module.exports = Place;
