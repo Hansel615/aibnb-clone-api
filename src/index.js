@@ -6,9 +6,11 @@ const express = require("express") ;
 const app = express() ;
 const mongoose = require("mongoose") ;
 const path = require("path") ;
-const port = process.env.PORT || 8000 ;
+const port = process.env.PORT || 5678 ;
 const morgan = require('morgan');
 const fs = require('fs');
+
+const placeRoutes = require("./routes/place");
 
 
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
@@ -28,7 +30,15 @@ app.use(morgan('combined', {stream: accessLogStream})) ;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
+app.use("/api/places", placeRoutes);
+app.set('view engine', "pug");
+app.set('views', "./src/views");
+
 app.listen(port, () => console.log(`[server is running on ${port}]`));
+
 app.get('/api', function (req, res) {
     res.send('hello, world!')
   });
+  // app.get("*",(req,res) => {
+  //   res.render('404')
+  // })
