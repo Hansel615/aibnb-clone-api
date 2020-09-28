@@ -14,13 +14,27 @@ const cityRoutes = require('./routes/city')
 
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
 
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/airbnb-clone-api", {
+
+//mongoose.connect('mongodb+srv://EstiamUser:123@cluster0.6weoz.azure.mongodb.net/airbnb-clone-api?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://atlastest:atlastest@cluster0.g8cah.mongodb.net/airbnb-api-eq4?retryWrites=true&w=majority',{  
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}).then(function(){
-    console.log('connected to MongoDB successfully') ;
+})
+.then(()=>{
+  console.log('Success connexion to Atlas');
+})
+.catch((error) =>{
+ console.log('connection failed to Atlas')
+ console.error(error);
 });
+
+// mongoose.Promise = global.Promise;
+// mongoose.connect("mongodb://localhost/airbnb-clone-api", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// }).then(function(){
+//     console.log('connected to MongoDB successfully') ;
+// });
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -58,6 +58,7 @@ exports.login = async (req, res, next) => {
     try {
       const user = await User.findById(req.user);
       return res.send(user);
+      //res.render("welcome", { users: users })
     } catch (err) {
       next(err)
     }
