@@ -5,36 +5,34 @@ block content
     //-var length = hotels.length
     //- -console.log(hotels)
     if length === 0
-        h2 Not Booked Any Hotel With us now
+        h2 Mes biens à la location
     .booking
-        //each booking in hotels
-            
+        each bear in bears
+
             .bookingCard
-                h2 PAID
+                h2 Hébergement
                 .bookingCard_image
-                    img.bookingImage(src="/img/Hotels/bookinghotel.jpeg", alt="")
+                    img.bookingImage(src="https://cdn.pixabay.com/photo/2016/02/19/10/01/hotel-1209021_960_720.jpg", alt="")
                 .bookingCard_details
                     .bookingCard_hotel-details
-                        h5 City
-                        p= booking.hotel.livelocation.address
+                        h5 Nom
+                        p= bear.name
                         //- p= booking.hotel.address
                     .bookingCard_hotel-average 
-                        h5 Description
-                        p= booking.hotel.ratingsAverage
+                        h5 Ville
+                        p= bear.city
                     .bookingCard_host-details
-                        h5 Nom
-                        p Hosted by:
-                        p= booking.user.username
+                        h5 Description
+                        p= bear.city
                     .bookingCard_price-details
-                        h5 Price
-                        p PAID
-                        p= booking.price
+                        p Prix par nuit
+                        p= bear.age
                     .bookingCard_checkin-details
-                        h5 max_guests
-                        p= booking.checkin
+                        h5 Nombre de couchages
+                        p= bear.age
                     .bookingCard_checkout-details
                         h5 available
-                        p= booking.checkout
+                        p= bear.nom
                     .bookingCard_guest-details
-                        h5 Total-Guest
-                        p= booking.guest
+                        h5 User
+                        p= bear.age

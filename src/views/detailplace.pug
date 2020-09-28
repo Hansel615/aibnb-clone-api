@@ -1,0 +1,106 @@
+doctype html
+html
+  head
+    block head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+        title Air | #{title}
+        link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous")
+        script(src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js')
+        link(href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet')
+        script(src="https://js.stripe.com/v3/")
+
+
+
+  body
+    // HEADER
+    include _header
+
+    .singleOverview
+        .singleOverview_topdetails
+            h2 Hotel
+            span    
+               
+                span= desc
+        .singleOverview_images
+            .singleOverview_images_left
+                img(src="https://cdn.pixabay.com/photo/2013/01/05/11/11/caravanserai-73726_960_720.jpg", alt="")
+            .singleOverview_images_right
+                img(src="https://cdn.pixabay.com/photo/2016/03/20/17/12/beach-hut-1268983_960_720.jpg", alt="")
+                img(src="https://cdn.pixabay.com/photo/2013/04/18/14/39/ship-105596_960_720.jpg", alt="")
+                img(src="https://cdn.pixabay.com/photo/2015/06/08/15/02/breakfast-801827_960_720.jpg", alt="")
+                img(src="https://cdn.pixabay.com/photo/2018/08/23/00/11/girl-3624933_960_720.jpg", alt="")
+
+        .singleOverview_details_payment
+            .singleOverview_details
+                .singleOverview_details_first
+                   // -const details = `${data.hotel_type} hosted by ${data.host[0].username}`
+                    .singleOverview_details_first_a
+                        h3= details
+                    .singleOverview_details_first_b
+                        img(src=`/img/users/${data.host[0].photo}`, alt="")
+                .singleOverview_details_second
+                    h4 Nom de l'hotel
+                    p bear.name
+                .singleOverview_details_bed
+                    h4 Commentaire
+                    p place.commentaire
+                    .singleOverview_details_bed_card
+                        span
+                            
+                            br
+                            p place.room
+                            br
+                            p place.bathroom
+                            br
+                            p place.city_id
+                .singleOverview_details_third
+                    //- 
+                .singleOverview_details_fourth
+                    
+                    h3= s= reviewing
+
+            .singleOverview_payment
+                    .boxShadowForm
+                        .singleOverview_payment_top
+                            h6 
+                                p place.price_by_night
+                            p  €/night
+                            img(src="", alt="")
+                            p available
+                        .singleOverview_payment_form
+                            form.form_payment_form
+                                .form__grouppayment1
+                                    .form__grouppayment1a.form-rightborder
+                                        label(for='checkin') CHECK-IN
+                                        input.form__input(type='date', id='checkin',max='',placeholder='Add date')
+                                    .form__grouppayment1a
+                                        label(for='checkout') CHECK-OUT
+                                        input.form__input(type='date', id='checkout',min='',placeholder='Add date')
+                                .form__grouppayment1b
+                                    label(for='guests') Guests
+                                    input#guest.form__input(type='number', placeholder='guest')
+                                p.total_payment_section
+                                    p cout
+                                    p.total_paymentb INR
+                                .form__grouppayment.form-payment_button
+                                    if user
+                                        button#book-tour(data-hotel-id = data._id) Check availability
+                                    else
+                                        a(href="/login") Login
+        h4 Location
+        .singleOverview_map
+
+            //- #map(data-livelocation=`${JSON.stringify(data.livelocation)}`)
+            //- img(src="", alt="")
+
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js')
+        script(src='/js/review.js')
+        script(src='/js/mapbox.js')
+        script(src='/js/logout.js')
+        script(src='/js/stripe.js')
+        script(src='/js/date2.js')

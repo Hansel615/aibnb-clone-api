@@ -65,7 +65,7 @@ exports.store = async (req, res, next) => {
             
           });
           console.log (places)
-          //res.render("places", { places: places });
+          //res.render('welcome', { places: places });
           res.json(places)
         } catch (error) {
           next(error);
