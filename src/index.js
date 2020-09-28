@@ -28,11 +28,13 @@ app.use(passportJWT.intialize());
 app.use(morgan('combined', {stream: accessLogStream})) ;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/static', express.static(__dirname + '/static'))
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/api/auth", authRoutes);
 app.use("/api/places", placeRoutes);
 app.use("/api/cities", cityRoutes)
 app.set('view engine', "pug");
-app.set('views', "./views");
+app.set('views', "./src/views");
 
 app.listen(port, () => console.log(`[server is running on ${port}]`));
 
