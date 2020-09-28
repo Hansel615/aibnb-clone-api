@@ -3,10 +3,10 @@ const router = express.Router();
 const placeController = require("../controllers/placeController");
 const passportJWT = require("../middlewares/passportJWT")();
 
-router.get("/places/:id/", placeController.show);
-router.get("/places/new",passportJWT.authenticate(),placeController.add)
-router.post("/places/new",passportJWT.authenticate(),placeController.store);
-router.patch("/places/:id",passportJWT.authenticate(),placeController.patch);
-router.get("/places",placeController.all);
+router.get("/:id/", placeController.show);
+router.get("/new",passportJWT.authenticate(),placeController.add)
+router.post("/new",placeController.store);
+router.patch("/:id",passportJWT.authenticate(),placeController.patch);
+router.get("",placeController.all);
 
 module.exports = router;

@@ -9,9 +9,8 @@ const path = require("path") ;
 const port = process.env.PORT || 5678 ;
 const morgan = require('morgan');
 const fs = require('fs');
-
 const placeRoutes = require("./routes/place");
-
+const cityRoutes = require('./routes/city')
 
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
 
@@ -31,8 +30,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/places", placeRoutes);
+app.use("/api/cities", cityRoutes)
 app.set('view engine', "pug");
-app.set('views', "./src/views");
+app.set('views', "./views");
 
 app.listen(port, () => console.log(`[server is running on ${port}]`));
 

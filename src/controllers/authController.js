@@ -32,7 +32,7 @@ exports.login = async (req, res, next) => {
 
   exports.signup = async (req, res, next) => {
     try {
-      console.log(validationHandler(req.body));
+      validationHandler(req.body);
     
       const existingUser = await User.findOne({email : req.body.email});
       if(existingUser){

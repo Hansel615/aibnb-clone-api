@@ -2,16 +2,16 @@ const Place = require("../models/place");
 
 exports.show = async (req, res, next) => {
     try {
-      const places = await Place.findOne({ _id: req.params.id });
-      console.log (places)
-      res.json(places)
+      const place = await Place.findOne({ _id: req.params.id });
+      res.json(place)
+      
       //res.render("place", {places: places});
     } catch (error) {
       next(error);
     }
   };
 
-//   manque condition  : Est ce qu'il faut mettre avant try catch
+//   manque con  : Est ce qu'il faut mettre avant try catch
 //       if(!existingPlace){
 //       const error = new Error("La ressource demandé n'existe pas");
 //       error.statusCode = 404;
@@ -64,7 +64,7 @@ exports.store = async (req, res, next) => {
           const places = await Place.find({
             
           });
-          console.log (place)
+          console.log (places)
           //res.render("places", { places: places });
           res.json(places)
         } catch (error) {
