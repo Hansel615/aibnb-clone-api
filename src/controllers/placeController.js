@@ -65,7 +65,7 @@ exports.store = async (req, res, next) => {
             
           });
           console.log (places)
-          res.render("signup", { places: places });
+          res.render("overview", { places: places });
           //res.json(places)
         } catch (error) {
           next(error);
