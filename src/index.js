@@ -5,6 +5,7 @@ const cors = require("cors");
 const express = require("express") ;
 const app = express() ;
 const mongoose = require("mongoose") ;
+//const mongoose = require("./database.js");
 const path = require("path") ;
 const port = process.env.PORT || 5678 ;
 const morgan = require('morgan');
@@ -14,7 +15,7 @@ const cityRoutes = require('./routes/city');
 const bookingRoutes = require('./routes/booking');
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
 
-
+//partie à commenté pour mongoDB Atlas
  mongoose.Promise = global.Promise;
  mongoose.connect("mongodb://localhost/airbnb-clone-api", {
    useNewUrlParser: true,
@@ -22,6 +23,8 @@ var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'
  }).then(function(){
      console.log('connected to MongoDB successfully') ;
  });
+ // fin de commentaire atlas
+ 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -46,7 +46,7 @@ exports.store = async (req, res, next) => {
             res.status(201).json({
                 status: 'success',
                 data: {
-                    data: oneHotel
+                    data: place
                 }
             });
         } catch (err) {

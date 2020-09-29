@@ -67,17 +67,17 @@ block content
                             span= `${page-1}1 - ${page*10} of ${length} places to stay`
                         else
                             span= `${page-1}1 - ${page*10-(page*10-length)} of ${length} places to stay`
-                        p Enter dates to see full pricing. Additional fees apply. Taxes may be added.
-        .overview_mainright
-            .fixingmap
-                - const hotels = []
-                each place in places
-                    //- -console.log(hotel)
-                    - var taking_hotels = place._id
-                    //- -console.log(taking_hotels)
+        //-                 p Enter dates to see full pricing. Additional fees apply. Taxes may be added.
+        //- .overview_mainright
+        //-     .fixingmap
+        //-         - const hotels = []
+        //-         each place in places
+        //-             //- -console.log(hotel)
+        //-             - var taking_hotels = place._id
+        //-             //- -console.log(taking_hotels)
                     
-                    - hotels.push(taking_hotels)
+        //-             - hotels.push(taking_hotels)
 
-                //- -console.log("all hotels location")
-                //- -console.log(hotels)
-                #mainmap(data-locations=`${JSON.stringify(hotels)}`)
+        //-         //- -console.log("all hotels location")
+        //-         //- -console.log(hotels)
+        //-         #mainmap(data-locations=`${JSON.stringify(hotels)}`)
