@@ -580,15 +580,7 @@ input[type=password]:hover {
 	/* width: 61px; */
 	height: 38px;
 }
-/* .security-main-heading::after {
-	content: '            ';
-	position: absolute;
-	top: 30%;
-	/* : 38px; */
-/* width: 61px;
-	height: 38px;
-	border-bottom: 2.4px solid rgb(90, 145, 94); */
-/* } */
+
 .security-main_update {
 	width: 60%;
 }
@@ -863,8 +855,16 @@ input[type=password]:hover {
 .overview_paginate p {
 	margin-top: 30px;
 	font-size: small;
-	color: grey;
+    color: grey;
+    
+}/* 404 VIEW */
+.error.template {
+	width: 80%;
+	margin: 0 auto;
+	border-top: 1px solid gray;
 }
+
+
 /* SINGLE OVERVIEW */
 .singleOverview {
 	width: 90%;
