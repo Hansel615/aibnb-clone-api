@@ -15,11 +15,20 @@ exports.hasLastName = body('last_name')
 exports.hasRole = (body('role')
   .equals("host") || body('role').equals("visitor"))
   .withMessage("Must have role (visitor or host)");
-  exports.Name = body('name')
+  exports.hasName = body('name')
   .isLength({min: 5})
   .withMessage("Place name is required. Min Length 5 characters");
   exports.hasDescription = body('description')
   .isLength({min: 5})
   .withMessage("Description is required. Min Length 5 characters");
+ exports.hasRooms = body('rooms').custom((value)=>{
+   return value>0 ;
+ })
+ .withMessage("Rooms number is required");
+ exports.hasMax_guests = body('max_guests').custom((value)=>{
+   return value>0
+ }).withMessage("Max guests must is required");
+ exports.hasBathrooms = body('bathrooms').custom((value)=>{
+  return value>0 ;
+}).withMessage("Bathrooms must is required");
  
-  
