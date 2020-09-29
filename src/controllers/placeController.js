@@ -71,3 +71,20 @@ exports.store = async (req, res, next) => {
           next(error);
         }
       };
+      exports.delete = async(req, res ,next) => {
+        try{
+          
+          const place = await Place.findById(req.body.id);
+          if(!place){
+              const error = new Error("La place demandé n'existe pas");
+              error.statusCode = 404;
+              throw error;
+          }
+          await Place.deleteOne(place) ;
+          res.status(201).json({
+              status: 'success'
+          }) ;
+      }catch(error){
+          next(error) ;
+      }
+      }
