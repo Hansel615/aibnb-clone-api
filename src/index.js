@@ -4,7 +4,7 @@ const errorHandler = require("./middlewares/errorHandler");
 const cors = require("cors");
 const express = require("express") ;
 const app = express() ;
-const mongoose = require("mongoose") ;
+const mongoose = require("./database.js") ;
 const path = require("path") ;
 const port = process.env.PORT || 5678 ;
 const morgan = require('morgan');
@@ -14,20 +14,7 @@ const cityRoutes = require('./routes/city')
 
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
 
-
-//mongoose.connect('mongodb+srv://EstiamUser:123@cluster0.6weoz.azure.mongodb.net/airbnb-clone-api?retryWrites=true&w=majority',{
-mongoose.connect('mongodb+srv://atlastest:atlastest@cluster0.g8cah.mongodb.net/airbnb-api-eq4?retryWrites=true&w=majority',{  
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(()=>{
-  console.log('Success connexion to Atlas');
-})
-.catch((error) =>{
- console.log('connection failed to Atlas')
- console.error(error);
-});
-
+// pour atlas connection mongoose sur database.js
 // mongoose.Promise = global.Promise;
 // mongoose.connect("mongodb://localhost/airbnb-clone-api", {
 //   useNewUrlParser: true,
