@@ -17,6 +17,7 @@ const viewRoutes = require('./routes/view');
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
 
 //partie à commenté pour mongoDB Atlas
+
  mongoose.Promise = global.Promise;
  mongoose.connect("mongodb://localhost/airbnb-clone-api", {
    useNewUrlParser: true,

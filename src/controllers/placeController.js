@@ -1,4 +1,5 @@
 const Place = require("../models/place");
+const validationHandler = require("../validations/validationHandler")
 
 exports.show = async (req, res, next) => {
     try {
@@ -24,6 +25,7 @@ exports.add =(req, res) => {
 
 exports.store = async (req, res, next) => {
     try {
+      validationHandler(req);
       let place = new Place(req.body);
       place = await place.save();
       res.json(place);
