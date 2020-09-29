@@ -13,6 +13,7 @@ const fs = require('fs');
 const placeRoutes = require("./routes/place");
 const cityRoutes = require('./routes/city');
 const bookingRoutes = require('./routes/booking');
+const viewRoutes = require('./routes/view');
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'});
 
 //partie à commenté pour mongoDB Atlas
@@ -24,7 +25,7 @@ var accessLogStream = fs.createWriteStream(__dirname + '/access.log',{flags: 'a'
      console.log('connected to MongoDB successfully') ;
  });
  // fin de commentaire atlas
- 
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,6 +41,7 @@ app.use("/api/cities", cityRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.set('view engine', "pug");
 app.set('views', "./src/views");
+app.use("/", viewRoutes);
 
 app.listen(port, () => console.log(`[server is running on ${port}]`));
 

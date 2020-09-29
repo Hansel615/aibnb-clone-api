@@ -18,23 +18,40 @@ block content
           p
             | Vous avez déja un compte ? 
             a(href='/login') Se connecter
-        form.signform.formdesign
+        //- form.signform.formdesign(action='/api/auth/signup', method='POST')
+        form.form-horizontal(action='/api/auth/signup/', method='POST')
           .form__group
-            label.form__label.form__label__text(for='email') Email Address
+            label.form__label.form__label(for='email') Email Address
             br
-            input#email.form__input(type='email' required)
+            input#name.form-input(type='text',name ='email', placeholder='email')
+            //- br
+            //- input#email.form__input(type='text' required)
           .form__group.ma-bt-md
-            label.form__label.form__label__text(for='firstname') First Name
+            label.form__label(for='first_name') First Name
             br
-            input#username.form__input(type='text' required)
+            input#name.form-input(type='text',name ='first_name', placeholder='first_name')
+            //- br
+            //- input#first_name.form__input(type='text' required)
           .form__group.ma-bt-md
-            label.form__label.form__label__text(for='last_name') Last Name
+            label.form__label(for='last_name') Last Name
             br
-            input#password.form__input(type='text' required)
+            input#name.form-input(type='text',name ='last_name', placeholder='last_name')
+            //- br
+            //- input#last_name.form__input(type='text' required)
           .form__group.ma-bt-md
-            label.form__label.form__label__text(for='password') Password
+            label.form__label(for='password') Password
             br
-            input#confirmPassword.form__input(type='password' required)    
+            input#name.form-input(type='text',name ='password', placeholder='password')
+            //- br
+            //- input#password.form__input(type='text' required)   
+          .form__group.ma-bt-md
+            label.form__label(for='role') Role (host ou visitor)
+            br
+            input#name.form-input(type='text',name ='role', placeholder='role')
+            //- br
+            //- input#role.form__input(type='text' required)
+             
           .form__group
 				
-            button.btn.btn-success.btn-lg(type='button submit', name='D5', value='1') S'inscrire 
+            button.btn.btn-primary.input-group-btn(type="submit") envoyer
+            
