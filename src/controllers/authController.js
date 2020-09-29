@@ -49,7 +49,7 @@ exports.login = async (req, res, next) => {
       user = await user.save();
   
       const token = jwt.encode({id: user.id}, config.jwtSecret);
-      return res.status(201).send({user, token});
+      return res.status(201).render('welcome',{user, token});
     } catch (err) {
       res.status(err.statusCode)
       next(err)

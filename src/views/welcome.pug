@@ -283,9 +283,11 @@ html
                           tr
                             td
                               // CONTENT
-                              p=user.first_name
-                              p=user.last_name
-                              p=user.role
+                              H3 Hi
+                                p=user.first_name
+                                p=user.last_name
+                                p=user.role
+                                p=user.token
                               p 🎉 Bienvenu sur airbnb clone, nous sommes heureux de te connaitre  🙏
                               p Profitez de ce site pour rendre les vacances folles
                               table.btn.btn-primary(role='presentation', border='0', cellpadding='1', cellspacing='0')
@@ -296,7 +298,7 @@ html
                                         tbody
                                           tr
                                             td
-                                              a(href='http://127.0.0.1:3000/me/personal', target='_blank') Consultez la page
+                                              a.sign(href='/api/places/') Page d'accueil
                               p Si vous avez besoin d'aide pour l'utilsation du site, n'hésitez pas!
                               p - ESTIAM E4
 
