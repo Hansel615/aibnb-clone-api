@@ -13,7 +13,10 @@ exports.hasLastName = body('last_name')
   .isLength({min: 5})
   .withMessage("Last name is required. Min Length 5 characters");
 exports.hasRole = (body('role')
-  .equals("host") || body('role').equals("visitor"))
+  .custom((value)=>{
+    
+    return ((value.toString()===("host"))||(value.toString()===("visitor")))
+  }))
   .withMessage("Must have role (visitor or host)");
   exports.hasName = body('name')
   .isLength({min: 5})
