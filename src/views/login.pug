@@ -8,14 +8,16 @@ block content
     .rightlogin
       .login-form
         h2 Connectez vous à votre compte
-        form.form.form--login
-          .form__grouplogin
-            label.form__label(for='email') Adresse mail
-            input#email.form__input(type='email', placeholder='you@example.com', required)
+        form.form-horizontal(action='/api/auth/login/', method='POST')
+          .form__group
+            label.form__label.form__label(for='email') Email Address
+            br
+            input#name.form-input(type='text',name ='email', placeholder='email')
             block forgetcontent
               p.hideblock 
           .form__grouplogin
             label.form__label(for='password') Password
-            input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+            br
+            input#name.form-input(type='text',name ='password', placeholder='password')
           .form__grouplogin
-            button.btn1 Login    
+            button.btn.btn-primary.input-group-btn(type="submit") se connecter  

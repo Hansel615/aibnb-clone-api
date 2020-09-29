@@ -283,11 +283,15 @@ html
                           tr
                             td
                               // CONTENT
-                              H3 Hi
-                                p=user.first_name
-                                p=user.last_name
-                                p=user.role
-                                p=user.token
+                              H1 Hi
+                                H2 first name :
+                                  p=user.first_name
+                                H2 last name
+                                  p=user.last_name
+                                H2 role
+                                  p=user.role
+                                H2 token
+                                  p=token
                               p 🎉 Bienvenu sur airbnb clone, nous sommes heureux de te connaitre  🙏
                               p Profitez de ce site pour rendre les vacances folles
                               table.btn.btn-primary(role='presentation', border='0', cellpadding='1', cellspacing='0')

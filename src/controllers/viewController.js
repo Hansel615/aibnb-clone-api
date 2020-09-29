@@ -9,3 +9,11 @@ exports.signup = (req,res) => {
 exports.login = (req, res) => {
 	res.status(200).render('login');
 };
+
+exports.add = (req, res) => {
+	res.status(200).render('addplace');
+};
+
+exports.patch = (req, res) => {
+	res.render('patchplace');
+};

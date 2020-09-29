@@ -1,0 +1,53 @@
+extends base
+
+block content   
+
+  main.mainsign
+    .left
+      
+      .left-text
+        h1
+          | Venez modifier votre 
+          br
+          | location de maison ou appartement.
+    .right
+      .signup-form
+        .signup-form_text
+          
+          h2.heading-secondary.ma-bt-lg Les renseignements
+          p
+            | Vous avez changé d'avis 
+            a(href='/api/places/') home        
+        form.form-horizontal(action='/api/places/:id/', method='PATCH')
+          .form__group
+            label.form__label.form__label(for='name') Nom
+            br
+            input#name.form-input(type='text',name ='name', placeholder='name')
+          .form__group.ma-bt-md
+            label.form__label(for='description') Description
+            br
+            input#name.form-input(type='text',name ='description', placeholder='description')
+          .form__group.ma-bt-md
+            label.form__label(for='rooms') Nbre pièces
+            br
+            input#name.form-input(type='text',name ='rooms', placeholder='rooms')
+          .form__group.ma-bt-md
+            label.form__label(for='bathrooms') Nbre salle de bain
+            br
+            input#name.form-input(type='text',name ='bathrooms', placeholder='bathrooms')
+          .form__group.ma-bt-md
+            label.form__label(for='max_guests') Nbre maxi de personnes
+            br
+            input#name.form-input(type='text',name ='max_guests', placeholder='max_guests')
+          .form__group.ma-bt-md
+            label.form__label(for='price_by_night') Prix /nuit en €
+            br
+            input#name.form-input(type='text',name ='price_by_night', placeholder='price_by_night')
+          .form__group.ma-bt-md
+            label.form__label(for='available') Disponibilités
+            br
+            input#name.form-input(type='text',name ='available', placeholder='available')   
+          .form__group
+				
+            button.btn.btn-primary.input-group-btn(type="submit") envoyer
+            

@@ -28,7 +28,8 @@ exports.store = async (req, res, next) => {
       validationHandler(req);
       let place = new Place(req.body);
       place = await place.save();
-      res.json(place);
+      //res.json(place);
+      res.status(200).render('storeplace',{place})
     } catch (error) {
       next(error);
     }

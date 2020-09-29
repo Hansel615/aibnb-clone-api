@@ -1,0 +1,42 @@
+extends base
+
+block content
+
+        h2 Enregistrement effectué
+        br
+        h2 Récapitulatif
+        .booking
+       
+            .bookingCard
+                h2 Hébergement
+                .bookingCard_image
+                    img.bookingImage(src="https://cdn.pixabay.com/photo/2016/02/19/10/01/hotel-1209021_960_720.jpg", alt="")
+                .bookingCard_details
+                    .bookingCard_hotel-details
+                        h5 Nom
+                        p= place.name
+                        //- p= booking.hotel.address
+                    .bookingCard_hotel-average 
+                        h5 Description
+                        p= place.description
+                    .bookingCard_host-details
+                        h5 Nbre pièces
+                        p= place.rooms
+                    .bookingCard_price-details
+                        p Nbre de salle de bain
+                        p= place.bathrooms
+                    .bookingCard_checkin-details
+                        h5 Nbre de personnes
+                        p= place.max_guests
+                    .bookingCard_checkout-details
+                        h5 Prix par nuit en €
+                        p= place.price_by_night
+                    .bookingCard_guest-details
+                        h5 Disponibilité
+                        p= place.available
+                    .bookingCard_guest-details
+                        h5 id
+                        p= place._id
+        a.sign1(href='/api/places/') Home
+        a.sign1(href='/api/places/:id') Modifier
+        

@@ -1,4 +1,4 @@
-const jwt = require("jwt-simple")
+const jwt = require("jwt-simple");
 const config = require("../config/auth")
 
 const User = require("../models/user");
@@ -24,7 +24,8 @@ exports.login = async (req, res, next) => {
       }
     
       const token = jwt.encode({ id: user.id }, config.jwtSecret);
-      return res.send({ user, token });
+      //return res.send({user, token});
+      return res.status(200).render('welcome',{user, token});
     } catch (err) {
       next(err);
     }
@@ -50,6 +51,7 @@ exports.login = async (req, res, next) => {
   
       const token = jwt.encode({id: user.id}, config.jwtSecret);
       return res.status(201).render('welcome',{user, token});
+      //return res.status(201).send({user,token});
     } catch (err) {
       res.status(err.statusCode)
       next(err)
