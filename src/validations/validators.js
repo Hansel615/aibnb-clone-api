@@ -15,3 +15,11 @@ exports.hasLastName = body('last_name')
 exports.hasRole = (body('role')
   .equals("host") || body('role').equals("visitor"))
   .withMessage("Must have role (visitor or host)");
+  exports.Name = body('name')
+  .isLength({min: 5})
+  .withMessage("Place name is required. Min Length 5 characters");
+  exports.hasDescription = body('description')
+  .isLength({min: 5})
+  .withMessage("Description is required. Min Length 5 characters");
+ 
+  

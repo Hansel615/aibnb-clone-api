@@ -32,12 +32,11 @@ exports.login = async (req, res, next) => {
 
   exports.signup = async (req, res, next) => {
     try {
-      validationHandler(req.body);
-    
+      validationHandler(req);
       const existingUser = await User.findOne({email : req.body.email});
       if(existingUser){
         const error = new Error("Email already used");
-        error.statusCode = 403;
+        error.statusCode = 409;
         throw error;
       }
       let user = new User();
@@ -49,9 +48,11 @@ exports.login = async (req, res, next) => {
       user = await user.save();
   
       const token = jwt.encode({id: user.id}, config.jwtSecret);
-      return res.send({user, token});
+      return res.status(201).send({user, token});
     } catch (err) {
+      res.status(err.statusCode)
       next(err)
+      
     }
   }
   exports.me =  async (req, res, next) => {
